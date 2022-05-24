@@ -1,6 +1,6 @@
 {
   "name": "@selfaware/tailwind-base",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An opinionated Tailwind preset focused on flexibility",
   "main": "index.js",
   "author": "Mike Wagz",
