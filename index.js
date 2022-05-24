@@ -11,18 +11,18 @@ module.exports = {
       serif: ['serif'],
     },
     screens: {
-      xs: '400px',
-      s: '600px',
-      m: '800px',
-      l: '1000px',
-      xl: '1200px',
-      '2xl': '1400px',
-      '3xl': '1600px',
+      xs: '40rem',
+      s: '60rem',
+      m: '80rem',
+      l: '100rem',
+      xl: '120rem',
+      '2xl': '140rem',
+      '3xl': '160rem',
       ...new Array(13)
         .fill()
-        .map((_, i) => i * 100 + 400)
+        .map((_, i) => i * 10 + 40)
         .reduce((acc, val) => {
-          acc[val] = `${val}px`
+          acc[val * 10] = `${val}rem`
           return acc
         }, {}),
     },
@@ -45,6 +45,8 @@ module.exports = {
       .map((_, i) => i)
       .reduce((acc, val) => {
         acc[val] = `${val / 10}rem`
+        acc[`${val}em`] = `${val / 10}em`
+        acc[`${val}px`] = `${val}px`
         return acc
       }, {}),
     opacity: new Array(21)
