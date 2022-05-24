@@ -40,7 +40,7 @@ module.exports = {
         acc[val] = `${val / 100}`
         return acc
       }, {}),
-    spacing: new Array(351)
+    spacing: new Array(1601)
       .fill()
       .map((_, i) => i)
       .reduce((acc, val) => {
