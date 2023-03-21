@@ -11,18 +11,18 @@ module.exports = {
       serif: ['serif'],
     },
     screens: {
-      xs: '40rem',
-      s: '60rem',
-      m: '80rem',
-      l: '100rem',
-      xl: '120rem',
-      '2xl': '140rem',
-      '3xl': '160rem',
+      '2xs': '320px',
+      xs: '375px',
+      s: '425px',
+      m: '768px',
+      l: '1024px',
+      xl: '1440px',
+      '2xl': '1536px',
       ...new Array(13)
         .fill()
-        .map((_, i) => i * 10 + 40)
+        .map((_, i) => i * 100 + 400)
         .reduce((acc, val) => {
-          acc[val * 10] = `${val}rem`
+          acc[val] = `${val}px`
           return acc
         }, {}),
     },
