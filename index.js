@@ -18,9 +18,9 @@ module.exports = {
       l: '1024px',
       xl: '1440px',
       '2xl': '1536px',
-      ...new Array(13)
+      ...new Array(25)
         .fill()
-        .map((_, i) => i * 100 + 400)
+        .map((_, i) => i * 50 + 400)
         .reduce((acc, val) => {
           acc[val] = `${val}px`
           return acc
