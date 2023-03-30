@@ -1,3 +1,12 @@
+const createRange = (start, end, step = 1, formatter = (v) => v) =>
+  new Array(Math.floor((end - start) / step) + 1)
+    .fill()
+    .map((_, i) => i * step + start)
+    .reduce((acc, val) => {
+      acc[val] = `${formatter(val)}`
+      return acc
+    }, {})
+
 module.exports = {
   theme: {
     colors: {
@@ -6,6 +15,8 @@ module.exports = {
       current: 'currentColor',
       transparent: 'transparent',
     },
+    stroke: (theme) => theme('colors'),
+    fill: (theme) => theme('colors'),
     fontFamily: {
       sans: ['sans-serif'],
       serif: ['serif'],
@@ -18,51 +29,20 @@ module.exports = {
       l: '1024px',
       xl: '1440px',
       '2xl': '1536px',
-      ...new Array(25)
-        .fill()
-        .map((_, i) => i * 50 + 400)
-        .reduce((acc, val) => {
-          acc[val] = `${val}px`
-          return acc
-        }, {}),
+      ...createRange(400, 2500, 50, (val) => `${val}px`),
     },
-    fontSize: new Array(201)
-      .fill()
-      .map((_, i) => i)
-      .reduce((acc, val) => {
-        acc[val] = `${val / 10}rem`
-        return acc
-      }, {}),
-    lineHeight: new Array(161)
-      .fill()
-      .map((_, i) => i)
-      .reduce((acc, val) => {
-        acc[val] = `${val / 100}`
-        return acc
-      }, {}),
-    spacing: new Array(1601)
-      .fill()
-      .map((_, i) => i)
-      .reduce((acc, val) => {
-        acc[val] = `${val / 10}rem`
-        acc[`${val}em`] = `${val / 10}em`
-        acc[`${val}px`] = `${val}px`
-        return acc
-      }, {}),
-    opacity: new Array(21)
-      .fill()
-      .map((_, i) => i * 5)
-      .reduce((acc, val) => {
-        acc[val] = `${val / 100}`
-        return acc
-      }, {}),
-    zIndex: new Array(11)
-      .fill()
-      .map((_, i) => i)
-      .reduce((acc, val) => {
-        acc[val] = `${val}`
-        return acc
-      }, {}),
+    fontSize: createRange(0, 200, 1, (val) => `${val / 10}rem`),
+    lineHeight: createRange(0, 160, 1, (val) => val / 100),
+    spacing: createRange(0, 1600, 1, (val) => `${val / 10}rem`),
+    borderWidth: createRange(0, 100, 1, (val) => `${val}px`),
+    borderRadius: createRange(0, 100, 1, (val) => `${val / 10}rem`),
+    letterSpacing: createRange(0, 10, 1, (val) => `${val / 100}em`),
+    opacity: createRange(0, 100, 5, (val) => val / 100),
+    zIndex: createRange(0, 10),
+    transitionDuration: {
+      DEFAULT: '500ms',
+      ...createRange(0, 2000, 50, (val) => `${val}ms`),
+    },
     transitionTimingFunction: {
       DEFAULT: 'cubic-bezier(0.23, 1, 0.32, 1)',
       'in-quad': 'cubic-bezier(0.55, 0.085, 0.68, 0.53)',
@@ -90,8 +70,6 @@ module.exports = {
       'in-out-circ': 'cubic-bezier(0.785, 0.135, 0.15, 0.86)',
       'in-out-back': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
     },
-    stroke: (theme) => theme('colors'),
-    fill: (theme) => theme('colors'),
     extend: {},
   },
   plugins: [],

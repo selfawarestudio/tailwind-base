@@ -1,10 +1,13 @@
 {
   "name": "@selfaware/tailwind-base",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "An opinionated Tailwind preset focused on flexibility",
   "main": "index.js",
   "author": "Mike Wagz",
   "license": "MIT",
   "homepage": "https://github.com/selfawarestudio/tailwind-base",
-  "repository": "selfawarestudio/tailwind-base"
+  "repository": "selfawarestudio/tailwind-base",
+  "scripts": {
+    "dev": "npx @estrattonbailey/scratch index.js"
+  }
 }
