@@ -35,7 +35,6 @@ module.exports = {
     lineHeight: createRange(0, 160, 1, (val) => val / 100),
     spacing: createRange(0, 1600, 1, (val) => `${val / 10}rem`),
     borderWidth: createRange(0, 100, 1, (val) => `${val}px`),
-    borderRadius: createRange(0, 100, 1, (val) => `${val / 10}rem`),
     letterSpacing: createRange(0, 10, 1, (val) => `${val / 100}em`),
     opacity: createRange(0, 100, 5, (val) => val / 100),
     zIndex: createRange(0, 10),
@@ -70,7 +69,9 @@ module.exports = {
       'in-out-circ': 'cubic-bezier(0.785, 0.135, 0.15, 0.86)',
       'in-out-back': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
     },
-    extend: {},
+    extend: {
+      borderRadius: createRange(0, 100, 1, (val) => `${val / 10}rem`),
+    },
   },
   plugins: [],
 }
